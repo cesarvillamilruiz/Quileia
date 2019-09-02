@@ -1,0 +1,49 @@
+﻿@model Quileia.Data.Entities.Ciudad
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="text-center">Details</h1>
+
+<div>
+    <dl>
+        <dt>
+            @Html.DisplayNameFor(model=>model.NombreCiudad)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model=>model.NombreCiudad)
+        </dd>
+    </dl>
+</div>
+
+
+@if (Model.TuristaCiudades == null || Model.TuristaCiudades.Count == 0)
+{
+<h5>No hay turistas relacionados</h5>
+}
+else
+{
+    <table class="table mt-5 col-6 table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model=>model.TuristaCiudades.FirstOrDefault().Turista.NombreCompleto)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.TuristaCiudades)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Turista.NombreCompleto)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div>
+        <a asp-action="Index" class="btn btn-danger"> Volver a la lista</a>
+    </div>
+}

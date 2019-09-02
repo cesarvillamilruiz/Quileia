@@ -1,0 +1,27 @@
+﻿@model Quileia.Models.CiudadViewmodel
+
+@{
+    ViewData["Title"] = "Agregar Ciudad Al Turista";
+}
+
+<h1>Agregarciudad Turista</h1>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddTuristCity" method="post">
+            <div asp-validation-summary="ModelOnly"></div>
+            <input type="hidden" asp-for="TuristaId"/>
+
+            <div class="form-group">
+                <label asp-for="CiudadId" class="control-label"></label>
+                <select asp-for="CiudadId" asp-items="Model.Ciudades" class="form-control"></select>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-danger" />
+                <a asp-action="Index" class="btn btn-success">Volver a la lista</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+

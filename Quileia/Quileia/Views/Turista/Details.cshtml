@@ -1,0 +1,57 @@
+﻿@model Quileia.Data.Entities.Turista
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<h2 class="text-center">Detalles</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreCompleto)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NombreCompleto)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="AddTuristCity" asp-route-id="@Model.Id" class="btn btn-primary"> Agregar ciudad a visitar</a>
+    <a asp-action="Index" class="btn btn-secondary"><i class="fa fa-arrow-left"></i> Volver a la lista</a>
+</div>
+
+
+@if (Model.TuristaCiudades == null || Model.TuristaCiudades.Count == 0)
+{
+    <h5>No hay ciudades relacionadas</h5>
+}
+else
+{
+    <table class="table mt-5  col-5 table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.TuristaCiudades.FirstOrDefault().Ciudad.NombreCiudad)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.TuristaCiudades)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ciudad.NombreCiudad)
+                    </td>
+                    <td id="@item.CiudadId">
+                        <a asp-action="DeleteCityFromTurisAsync" asp-route-id="@item.CiudadId" class="btn btn-outline-danger" id="btnDelete"><i class="fa fa-trash"></i> Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

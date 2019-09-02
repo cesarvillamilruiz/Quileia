@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Quileia.Data.Entities.Turista>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-success">Crear Nuevo Turista</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreCompleto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaDeNacimiento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Identificacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FrecunciaDeViaje)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PresupuestoDeViaje)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UsaTarjeta)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreCompleto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaDeNacimiento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Identificacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FrecunciaDeViaje)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PresupuestoDeViaje)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UsaTarjeta)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-edit"></i> Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" ><i class="fa fa-info-circle"></i> Details</a> |
+                    <a asp-action="Delete"  asp-route-id="@item.Id" id="btnDelete"><i class="fa fa-trash"></i> Delete</a>                    
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

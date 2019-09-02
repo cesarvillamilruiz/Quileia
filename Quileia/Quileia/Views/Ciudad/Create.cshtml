@@ -1,0 +1,45 @@
+﻿@model Quileia.Data.Entities.Ciudad
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Ciudad</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NombreCiudad" class="control-label"></label>
+                <input asp-for="NombreCiudad" class="form-control" />
+                <span asp-validation-for="NombreCiudad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CantidaddeHabitantes" class="control-label"></label>
+                <input asp-for="CantidaddeHabitantes" class="form-control" />
+                <span asp-validation-for="CantidaddeHabitantes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SitioTuristico" class="control-label"></label>
+                <input asp-for="SitioTuristico" class="form-control" />
+                <span asp-validation-for="SitioTuristico" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HotelMasReservado" class="control-label"></label>
+                <input asp-for="HotelMasReservado" class="form-control" />
+                <span asp-validation-for="HotelMasReservado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
