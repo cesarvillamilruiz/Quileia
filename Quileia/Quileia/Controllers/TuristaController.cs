@@ -32,11 +32,8 @@ namespace Quileia.Controllers
 
         public IActionResult Create()
         {
-            var model = new AddTuristViewModel
-            {
-                Ciudades = this.ciudadRepository.GetComboCiudad()
-            };
-            return View(model);
+            
+            return View();
         }
 
 
