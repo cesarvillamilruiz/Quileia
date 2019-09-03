@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<Quileia.Data.Entities.Turista>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Turistas";
 }
 
-<h1>Index</h1>
+<h1 class="text-center shadow-lg rounded">Listado de turistas</h1>
 
 <p>
-    <a asp-action="Create" class="btn btn-outline-success">Crear Nuevo Turista</a>
+    <a asp-action="Create" class="btn btn-outline-success"><i class="fa fa-plus"></i> Crear Nuevo Turista</a>
 </p>
 <table class="table">
     <thead>
@@ -56,9 +56,9 @@
                     @Html.DisplayFor(modelItem => item.UsaTarjeta)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-edit"></i> Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id" ><i class="fa fa-info-circle"></i> Details</a> |
-                    <a asp-action="Delete"  asp-route-id="@item.Id" id="btnDelete"><i class="fa fa-trash"></i> Delete</a>                    
+                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" >Historial</a> |
+                    <a asp-action="Delete"  asp-route-id="@item.Id" id="btnDelete">Eliminar</a>                    
                 </td>
             </tr>
         }

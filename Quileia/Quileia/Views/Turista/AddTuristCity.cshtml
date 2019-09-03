@@ -4,8 +4,8 @@
     ViewData["Title"] = "Agregar Ciudad Al Turista";
 }
 
-<h1>Agregarciudad Turista</h1>
-<div class="row">
+<h1 class="text-center">Agregarciudad Turista</h1>
+<div class="row d-flex justify-content-center">
     <div class="col-md-4">
         <form asp-action="AddTuristCity" method="post">
             <div asp-validation-summary="ModelOnly"></div>
@@ -17,8 +17,8 @@
             </div>
 
             <div class="form-group">
-                <input type="submit" value="Guardar" class="btn btn-danger" />
-                <a asp-action="Index" class="btn btn-success">Volver a la lista</a>
+                <input type="submit" value="Guardar" class="btn btn-success" />
+                <a asp-action="Index" class="btn btn-secondary"><i class="fa fa-arrow-left"></i> Volver a la lista</a>
             </div>
 
         </form>

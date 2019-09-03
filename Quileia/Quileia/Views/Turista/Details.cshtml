@@ -7,19 +7,17 @@
 
 <h2 class="text-center">Detalles</h2>
 
-<div>
-
-    <hr />
-    <dl class="dl-horizontal">
+<div class="d-flex justify-content-center">
+    <dl >
         <dt>
-            @Html.DisplayNameFor(model => model.NombreCompleto)
+            @Html.DisplayNameFor(model => model.NombreCompleto) 
         </dt>
         <dd>
             @Html.DisplayFor(model => model.NombreCompleto)
         </dd>
     </dl>
 </div>
-<div>
+<div class="d-flex justify-content-start">
     <a asp-action="AddTuristCity" asp-route-id="@Model.Id" class="btn btn-primary"> Agregar ciudad a visitar</a>
     <a asp-action="Index" class="btn btn-secondary"><i class="fa fa-arrow-left"></i> Volver a la lista</a>
 </div>
@@ -31,8 +29,9 @@
 }
 else
 {
-    <table class="table mt-5  col-5 table-hover">
-        <thead class="thead-dark">
+<div class="d-flex justify-content-center">
+    <table class="table mt-5  col-3 bg-warning rounded">
+        <thead class="bg-info">
             <tr>
                 <th>
                     @Html.DisplayNameFor(model => model.TuristaCiudades.FirstOrDefault().Ciudad.NombreCiudad)
@@ -54,4 +53,6 @@ else
             }
         </tbody>
     </table>
+</div>
 }
+

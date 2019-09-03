@@ -1,11 +1,11 @@
 ﻿@model Quileia.Data.Entities.Ciudad
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "historial";
 }
 
-<h1 class="text-center">Details</h1>
+<h1 class="text-center">Historial de la Ciudad</h1>
 
-<div>
+<div class="d-flex justify-content-center">
     <dl>
         <dt>
             @Html.DisplayNameFor(model=>model.NombreCiudad)
@@ -16,34 +16,38 @@
     </dl>
 </div>
 
+<div class="d-flex justify-content-center">
+    @if (Model.TuristaCiudades == null || Model.TuristaCiudades.Count == 0)
+    {
+        <h5>No hay turistas relacionados</h5>
+    }
+    else
+    {
 
-@if (Model.TuristaCiudades == null || Model.TuristaCiudades.Count == 0)
-{
-<h5>No hay turistas relacionados</h5>
-}
-else
-{
-    <table class="table mt-5 col-6 table-hover">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model=>model.TuristaCiudades.FirstOrDefault().Turista.NombreCompleto)
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.TuristaCiudades)
-            {
+        <table class="table mt-5 col-3 table-hover">
+            <thead>
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Turista.NombreCompleto)
-                    </td>
+                    <th>
+                        Tursitas que han visitado
+                    </th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.TuristaCiudades)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Turista.NombreCompleto)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
 
+
+    }
     <div>
-        <a asp-action="Index" class="btn btn-danger"> Volver a la lista</a>
+        <a asp-action="Index" class="btn btn-secondary"><i class="fa fa-arrow-left"></i> Volver</a>
     </div>
-}
+
+</div>
